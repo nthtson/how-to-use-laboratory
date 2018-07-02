@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Un-Freezing Assets" href="un-lock.html" />
     <link rel="prev" title="Make a custom token" href="token.html" /> 
 
   
@@ -88,6 +89,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#step-3-deauthorizes-users-trustline">Step 3: Deauthorizes User’s Trustline</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="un-lock.html">Un-Freezing Assets</a></li>
 </ul>
 
             
@@ -188,7 +190,7 @@
 </div>
 <div class="section" id="step-2-set-flags-to-true">
 <h2>Step 2: Set flags to <em>True</em><a class="headerlink" href="#step-2-set-flags-to-true" title="Permalink to this headline">¶</a></h2>
-<p>Go to <a class="reference external" href="http://laboratory.tee-coin.com/#txbuilder">Transaction Builder</a>, this is what that operation looks like:</p>
+<p>Go to <a class="reference external" href="http://laboratory.tee-coin.com/#txbuilder?network=test">Transaction Builder</a>, this is what that operation looks like:</p>
 <ul class="simple">
 <li><strong>Source Account</strong>: Issuer’s public address</li>
 <li><strong>Operation Type</strong>: Set Options</li>
@@ -198,10 +200,21 @@
 <p>Then sign transaction and submit to the network.</p>
 <p>If all goes well, you’ll see a successful transaction like so:</p>
 <img alt="_images/set-flags-result.png" class="align-center" src="_images/set-flags-result.png" />
-<p>Go to <a class="reference external" href="http://laboratory.tee-coin.com/#explorer?resource=accounts&amp;endpoint=single&amp;network=test">Step 1</a> to re-check statuses.</p>
+<p>Now go to <a class="reference external" href="https://how-to-use-laboratory.readthedocs.io/en/latest/lock.html#step-1-check-the-flags-of-issuer">Step 1</a> to re-check statuses.</p>
 </div>
 <div class="section" id="step-3-deauthorizes-users-trustline">
 <h2>Step 3: Deauthorizes User’s Trustline<a class="headerlink" href="#step-3-deauthorizes-users-trustline" title="Permalink to this headline">¶</a></h2>
+<p>Go to <a class="reference external" href="http://laboratory.tee-coin.com/#txbuilder?network=test">Transaction Builder</a>, this is what that operation looks like:</p>
+<ul class="simple">
+<li><strong>Source Account</strong>: Issuer’s public address</li>
+<li><strong>Operation Type</strong>: Allow Trust</li>
+<li><strong>Trustor</strong>: User’s public key that you want to freeze the asset</li>
+<li><strong>Asset Code</strong>: e.g. TEC</li>
+<li><strong>Authorize</strong>: false</li>
+</ul>
+<img alt="_images/lock.png" class="align-center" src="_images/lock.png" />
+<p>Then sign transaction and submit to the network.</p>
+<p>Finally, User cannot send or accept this asset.</p>
 </div>
 </div>
 
@@ -212,6 +225,8 @@
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="un-lock.html" class="btn btn-neutral float-right" title="Un-Freezing Assets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="token.html" class="btn btn-neutral" title="Make a custom token" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

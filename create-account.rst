@@ -32,3 +32,14 @@ Then fund it, like so:
 
 ..  image:: ./img/friendbot.png
     :align: center
+
+Check balances of an account
+--------------------------------------------------------------------------------
+
+Go to `Endpoint Explorer <http://laboratory.tee-coin.com/#explorer?resource=accounts&endpoint=single&network=test>`_
+
+..  image:: ./img/endpoint_balance.png
+    :align: center
+
+..  image:: ./img/endpoint_balance_result.png
+    :align: center

@@ -18,3 +18,4 @@ Contents
    transactions.rst
    token.rst
    lock.rst
+   un-lock.rst

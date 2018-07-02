@@ -82,13 +82,14 @@
 <li class="toctree-l1"><a class="reference internal" href="create-account.html">Accounts</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Transactions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#active-an-account">Active an account</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#payment">Payment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#send-and-receive-money">Send and Receive Money</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#create-a-trustline">Create a trustline</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#transfer-a-token">Transfer a token</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="token.html">Make a custom token</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lock.html">Freezing Assets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="un-lock.html">Un-Freezing Assets</a></li>
 </ul>
 
             
@@ -157,15 +158,60 @@
 <h1>Transactions<a class="headerlink" href="#transactions" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="active-an-account">
 <h2>Active an account<a class="headerlink" href="#active-an-account" title="Permalink to this headline">¶</a></h2>
+<p>This operation creates and funds a new account with the specified starting balance.</p>
+<p>Go to <a class="reference external" href="http://laboratory.tee-coin.com/#txbuilder">Transaction Builder</a>, this is what that operation looks like:</p>
+<ul class="simple">
+<li><strong>Source Account</strong>: Your public address</li>
+<li><strong>Operation Type</strong>: Create Account</li>
+<li><strong>Destination</strong>: New public key that you want to create</li>
+<li><strong>Starting Balance</strong>: e.g. 40</li>
+</ul>
+<img alt="_images/create_account.png" class="align-center" src="_images/create_account.png" />
+<p>Then sign transaction with your private key:</p>
+<img alt="_images/create_account_signed.png" class="align-center" src="_images/create_account_signed.png" />
+<p>If all goes well, you’ll see a successful transaction like so:</p>
+<img alt="_images/create_account_result.png" class="align-center" src="_images/create_account_result.png" />
+<p>Now you can check the balance of new user <a class="reference external" href="https://how-to-use-laboratory.readthedocs.io/en/latest/create-account.html#check-balances-of-an-account">here</a></p>
 </div>
-<div class="section" id="payment">
-<h2>Payment<a class="headerlink" href="#payment" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="send-and-receive-money">
+<h2>Send and Receive Money<a class="headerlink" href="#send-and-receive-money" title="Permalink to this headline">¶</a></h2>
+<p>Now that you have an account, you can send and receive funds through the Triam network. If you haven’t created an account yet, please follow <a class="reference external" href="https://how-to-use-laboratory.readthedocs.io/en/latest/create-account.html">this</a>.</p>
+<p>Most of the time, you’ll be sending money to someone else who has their own account.</p>
+<p>Go to <a class="reference external" href="http://laboratory.tee-coin.com/#txbuilder">Transaction Builder</a>, this is what that operation looks like:</p>
+<ul class="simple">
+<li><strong>Source Account</strong>: Your public address</li>
+<li><strong>Operation Type</strong>: Payment</li>
+<li><strong>Destination</strong>: Your destination public address</li>
+<li><strong>Asset</strong>: Native</li>
+<li><strong>Amount</strong>: e.g. 20</li>
+</ul>
+<img alt="_images/payment.png" class="align-center" src="_images/payment.png" />
+<p>Then sign transaction with your private key:</p>
+<img alt="_images/payment_signed.png" class="align-center" src="_images/payment_signed.png" />
+<p>If all goes well, you’ll see a successful transaction like so:</p>
+<img alt="_images/payment_result.png" class="align-center" src="_images/payment_result.png" />
+<p>Now you can check the balance of new user <a class="reference external" href="https://how-to-use-laboratory.readthedocs.io/en/latest/create-account.html#check-balances-of-an-account">here</a></p>
 </div>
 <div class="section" id="create-a-trustline">
 <h2>Create a trustline<a class="headerlink" href="#create-a-trustline" title="Permalink to this headline">¶</a></h2>
+<p>When you hold assets in Triam, you’re actually holding credit from a particular issuer. The issuer has agreed that it will trade you its credit on the Stellar network for the corresponding asset–e.g., fiat currency, precious metal–outside of Stellar. Let’s say that Scott issues oranges as credit on the network. If you hold orange credits, you and Scott have an agreement based on trust, or a trustline: you both agree that when you give Scott an orange credit, he gives you an orange.</p>
+<p>When you hold an asset, you must trust the issuer to properly redeem its credit. Since users of Triam will not want to trust just any issuer, accounts must explicitly trust an issuing account before they’re able to hold the issuer’s credit. In the example above, you must explicitly trust Scott before you can hold orange credits.</p>
+<p>To trust an issuing account, you create a trustline. Trustlines are entries that persist in the Triam ledger. They track the limit for which your account trusts the issuing account and the amount of credit from the issuing account that your account currently holds.</p>
+<p>Now go to <a class="reference external" href="http://laboratory.tee-coin.com/#txbuilder">Transaction Builder</a> to create a trust line:</p>
+<img alt="_images/trust_line.png" class="align-center" src="_images/trust_line.png" />
+<p>Then sign transaction with your private key:</p>
+<img alt="_images/trust_line_signed.png" class="align-center" src="_images/trust_line_signed.png" />
+<p>If all goes well, you’ll see a successful transaction like so:</p>
+<img alt="_images/trust_line_result.png" class="align-center" src="_images/trust_line_result.png" />
 </div>
 <div class="section" id="transfer-a-token">
 <h2>Transfer a token<a class="headerlink" href="#transfer-a-token" title="Permalink to this headline">¶</a></h2>
+<p>Go to <a class="reference external" href="http://laboratory.tee-coin.com/#txbuilder">Transaction Builder</a>, this is what that operation looks like:</p>
+<img alt="_images/send_token.png" class="align-center" src="_images/send_token.png" />
+<p>Then sign transaction with your private key:</p>
+<img alt="_images/send_token_signed.png" class="align-center" src="_images/send_token_signed.png" />
+<p>If all goes well, you’ll see a successful transaction like so:</p>
+<img alt="_images/send_token_result.png" class="align-center" src="_images/send_token_result.png" />
 </div>
 </div>
 

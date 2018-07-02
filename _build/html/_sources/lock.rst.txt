@@ -44,7 +44,7 @@ Now go to `Endpoint Explorer <http://laboratory.tee-coin.com/#explorer?resource=
 Step 2: Set flags to *True*
 --------------------------------------------------------------------------------
 
-Go to `Transaction Builder <http://laboratory.tee-coin.com/#txbuilder>`_, this is what that operation looks like:
+Go to `Transaction Builder <http://laboratory.tee-coin.com/#txbuilder?network=test>`_, this is what that operation looks like:
 
 * **Source Account**: Issuer's public address
 * **Operation Type**: Set Options
@@ -60,7 +60,22 @@ If all goes well, you’ll see a successful transaction like so:
 ..  image:: ./img/set-flags-result.png
     :align: center
 
-Go to `Step 1 <http://laboratory.tee-coin.com/#explorer?resource=accounts&endpoint=single&network=test>`_ to re-check statuses.
+Now go to `Step 1 <https://how-to-use-laboratory.readthedocs.io/en/latest/lock.html#step-1-check-the-flags-of-issuer>`_ to re-check statuses.
 
 Step 3: Deauthorizes User’s Trustline
 --------------------------------------------------------------------------------
+
+Go to `Transaction Builder <http://laboratory.tee-coin.com/#txbuilder?network=test>`_, this is what that operation looks like:
+
+* **Source Account**: Issuer's public address
+* **Operation Type**: Allow Trust
+* **Trustor**: User's public key that you want to freeze the asset
+* **Asset Code**: e.g. TEC
+* **Authorize**: false
+
+..  image:: ./img/lock.png
+    :align: center
+
+Then sign transaction and submit to the network.
+
+Finally, User cannot send or accept this asset.
